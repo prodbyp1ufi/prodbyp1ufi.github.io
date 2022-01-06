@@ -1,0 +1,112 @@
+.main-container{
+    margin: 0 auto;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+table{
+    border-collapse:collapse;
+    text-align: center;
+    width: 90%;
+}
+td{
+    padding:10px;
+    width: 200px;
+    height: 50px;
+    max-width: 200px;
+    font-size: 20px;
+    border: solid black 1px;
+}
+.modal-container{
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    visibility: collapse;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    box-shadow: 0px 0px 5px 2px black;
+    border-radius: 15px;
+    background-color: white;
+    width: 50%;
+    height: 50vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.option-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-container select{
+    width: 90%;
+    min-width: 90%;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px;
+    margin-top: 20px;
+}
+
+
+#closeButton{
+    width: 30px;
+    height: 45vh;
+    border-radius: 15px;
+    border: none;
+    border: solid black 1px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+#saveButton, #clearButton,#exportButton{
+    margin-top: 50px;
+    border-radius: 15px;
+    border: solid black 1px;
+    width: 70%;
+    height: 30px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.export-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center ;
+}
+
+.delaybutton-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.configuratin-selector, .cabinet-selector, .timeTable-selector{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tdDay{
+    transform: rotate(270deg);
+}

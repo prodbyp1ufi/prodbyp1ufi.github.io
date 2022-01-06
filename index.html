@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeSheetGenerate</title>
+    <link href="./css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="configuration-selecter-container">
+            <div class="configuratin-selector">
+                Загрузить ведомости
+                <input id="configurationButton" type="file" multiple="true" onchange="loadingConfiguration(this.files)">
+            </div>
+            <div class="cabinet-selector">
+                Загрузить кабинеты
+                <input id="cabinetButton" disabled type="file" multiple="false" onchange="loadingCabinet(this.files)">
+            </div>
+            <div class="timeTable-selector">
+                Загрузить расписание
+                <input id="timeTableButton" disabled type="file" multiple="false" onchange="loadingTimeTable(this.files)">
+            </div>
+        </div>
+        <table id="sheetTable">
+            
+        </table>
+        <div  class="modal-container">
+            <input id="closeButton" type="button" onclick="hiddenModal()" value="&#9747;">
+            <div class="modal">
+                <div class="option-container">
+                    <select class="teacher-select"></select>
+                    <select class="discipline-select"></select>
+                    <select class="separation-select">
+                        <option selected>Вся группа</option>
+                        <option>1 подгруппа</option>
+                        <option>2 подгруппа</option>
+                    </select>
+                    <div class="delaybutton-container">
+                        <input type="button" id="clearButton" value="Очистить"/>
+                        <input type="button" id="saveButton" value="Сохранить"/>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="export-container">
+            <input id="exportButton" type="button" onclick="exportToExcel('xlsx')" value="Сохранить"/>
+        </div>
+    </div>
+    <script src="./js/index.js"></script> 
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+    <noscript>Необходимо включить JavaScript</noscript>
+</body>
+</html>
