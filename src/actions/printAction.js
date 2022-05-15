@@ -1,0 +1,76 @@
+import CardsAction from "./cardsAction";
+import TagsAction from "./tagsAction";
+import TaskListAction from "./taskListAction";
+import UsersAction from "./usersAction";
+import { jsPDF } from "jspdf";
+import '../fonts/Stem-Regular-normal.js'
+export default class PrintAction{
+
+    static async printCardsInBoard(board){
+        
+        const boardCards = await CardsAction.getBoardCard(board.id)
+        for (let index = 0; index < boardCards.length; index++) {
+            await TagsAction.getCardTags(boardCards[index].id).then(
+                tags=>{
+                    boardCards[index].tags = tags
+                }
+            )
+            await TaskListAction.getCardTaskList(boardCards[index].id).then(
+                taskList=>{
+                    boardCards[index].tasklist = taskList
+                }
+            )
+            if(boardCards[index].userEmails !== null && boardCards[index].userEmails.length > 0){
+                await UsersAction.getCardUsers(boardCards[index].userEmails).then(
+                    users=>{
+                        boardCards[index].users = users
+                    }
+                )
+            }
+        }
+
+        const dateNow = Date.now()
+        const cardOnPrint = boardCards.filter(card=> card.date !== null && card.date < dateNow)
+        
+        const doc = new jsPDF();
+        doc.addFont('Stem-Regular-normal.ttf', 'MyFont', 'normal')
+        doc.setFont('MyFont')
+        doc.setFontSize(14)
+        cardOnPrint.forEach((card,index)=>{
+            const cardString = this.cardToString(card)
+            doc.text(cardString, 20,20,{maxWidth:180})
+            
+            if(index !== cardOnPrint.length-1){
+                doc.addPage()
+            }
+        })
+        doc.save('cardReport.pdf')
+    }
+    static cardToString(card){
+        const formatter = new Intl.DateTimeFormat("ru", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+        });
+        let cardString = `Имя: ${card.name}\r\r\n`
+        cardString += `Описание: ${card.caption}\r\r\n`
+        cardString += `Срок сдачи: ${formatter.format(card.date)}\r\r\n`
+        cardString += `Прикрепленные метки: ${card.tags.length === 0 ? 'отсутвуют' : '\r\n'}`
+        card.tags.forEach(tag=>{
+            cardString+=`       ·${tag.name}\r\n`
+        })
+        cardString += '\r\r\n'
+        cardString += `Поставленные задачи:  ${card.tasklist.length === 0 ? 'отсутвуют' : '\r\n'}`
+        card.tasklist.forEach(task=>{
+            cardString+=`       ·${task.task} ${!task.isComplete ? '(не выполнена)' : ''}\r\n`
+        })
+        cardString += '\r\r\n'
+        cardString += `Участники:  ${card.users.length === 0 ? 'отсутвуют' : '\r\n'}`
+        card.users.forEach(user=>{
+            cardString+=`       ·${user.displayName} <${user.email}>\r\n`
+        })
+        return cardString
+    }
+}
