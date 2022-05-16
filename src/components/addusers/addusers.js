@@ -85,91 +85,92 @@ export default function AddUsers({
                 />
                 {search === ""
                     ? users.map((user) => {
-                          return auth.currentUser.email !== user.email ? (
-                              <div
-                                  onClick={() => {
-                                      addUserInCard(user.email, user.name);
-                                  }}
-                                  className="add-user"
-                                  key={user.id}
-                              >
-                                  {user.avatarURL ? (
-                                      <img
-                                          className="card-modal-history-move-creator-avatar"
-                                          src={user.avatarURL}
-                                      />
-                                  ) : (
-                                      <div className="avatar-replacer">
-                                          {AvatarUtils.getAvatarReplacerText(
-                                              user.displayName,
-                                              user.email
-                                          )}
-                                      </div>
-                                  )}
-                                  <div className="add-user__info">
-                                      {user.displayName
-                                          ? `${user.displayName}<${user.email}>`
-                                          : user.email}
-                                      {card.users.filter(
-                                          (cardUser) => cardUser === user.email
-                                      ).length > 0 ? (
-                                          <img
-                                              className="user-check"
-                                              src={checkImage}
-                                          />
-                                      ) : (
-                                          ""
-                                      )}
-                                  </div>
-                              </div>
-                          ) : (
-                              ""
-                          );
-                      })
-                    : users
-                          .filter(
-                              (user) =>
-                                  user.displayName
-                                      ?.toLowerCase()
-                                      .includes(search.toLowerCase()) ||
-                                  user.email
-                                      ?.toLowerCase()
-                                      .includes(search.toLowerCase())
-                          )
-                          .map((user) => {
-                              return auth.currentUser.email !== user.email ? (
-                                  <div
-                                      onClick={() => {
-                                          addUserInCard(user.email, user.name);
-                                      }}
-                                      className="add-user"
-                                      key={user.id}
-                                  >
-                                      {user.avatarURL ? (
-                                          <img
-                                              className="card-modal-history-move-creator-avatar"
-                                              src={user.avatarURL}
-                                          />
-                                      ) : (
-                                          <div className="avatar-replacer">
-                                              {AvatarUtils.getAvatarReplacerText(
-                                                  user.displayName,
-                                                  user.email
-                                              )}
-                                          </div>
-                                      )}
-                                      {user.displayName
-                                          ? `${user.displayName}<${user.email}>`
-                                          : user.email}
-                                      <img
-                                          className="user-check"
-                                          src={checkImage}
-                                      />
-                                  </div>
-                              ) : (
-                                  ""
-                              );
-                          })}
+                            return auth.currentUser.email !== user.email ? (
+                                <div
+                                    onClick={() => {
+                                        addUserInCard(user.email, user.name);
+                                    }}
+                                    className="add-user"
+                                    key={user.id}
+                                >
+                                    {user.avatarURL ? (
+                                        <img
+                                            className="card-modal-history-move-creator-avatar"
+                                            src={user.avatarURL}
+                                        />
+                                    ) : (
+                                        <div className="avatar-replacer">
+                                            {AvatarUtils.getAvatarReplacerText(
+                                                user.displayName,
+                                                user.email
+                                            )}
+                                        </div>
+                                    )}
+                                    <div className="add-user__info">
+                                        {user.displayName
+                                            ? `${user.displayName}<${user.email}>`
+                                            : user.email}
+                                        {card.users.filter(
+                                            (cardUser) => cardUser === user.email
+                                        ).length > 0 ? (
+                                            <img
+                                                className="user-check"
+                                                src={checkImage}
+                                            />
+                                        ) : (
+                                            ""
+                                        )}
+                                    </div>
+                                </div>
+                            ) : (
+                                ""
+                            );
+                        })
+                        : users
+                            .filter(
+                                (user) =>
+                                    user.displayName
+                                        ?.toLowerCase()
+                                        .includes(search.toLowerCase()) ||
+                                    user.email
+                                        ?.toLowerCase()
+                                        .includes(search.toLowerCase())
+                            )
+                            .map((user) => {
+                                return auth.currentUser.email !== user.email ? (
+                                    <div
+                                        onClick={() => {
+                                            addUserInCard(user.email, user.name);
+                                        }}
+                                        className="add-user"
+                                        key={user.id}
+                                    >
+                                        {user.avatarURL ? (
+                                            <img
+                                                className="card-modal-history-move-creator-avatar"
+                                                src={user.avatarURL}
+                                            />
+                                        ) : (
+                                            <div className="avatar-replacer">
+                                                {AvatarUtils.getAvatarReplacerText(
+                                                    user.displayName,
+                                                    user.email
+                                                )}
+                                            </div>
+                                        )}
+                                    <div className="add-user__info">
+                                        {user.displayName
+                                            ? `${user.displayName}<${user.email}>`
+                                            : user.email}
+                                        <img
+                                            className="user-check"
+                                            src={checkImage}
+                                        /></div>
+                                    </div>
+                                ) : (
+                                    ""
+                                );
+                            })}
             </div>
         </div>
     ) : (
@@ -222,6 +223,7 @@ export default function AddUsers({
                                           )}
                                       </div>
                                   )}
+                                  <div className="add-user__info">
                                   {user.displayName
                                       ? `${user.displayName}<${user.email}>`
                                       : user.email}
@@ -232,6 +234,8 @@ export default function AddUsers({
                                       className="user-check"
                                       src={removeImage}
                                   />
+                                  </div>
+
                               </div>
                           ) : (
                               ""
@@ -263,7 +267,8 @@ export default function AddUsers({
                                               )}
                                           </div>
                                       )}
-                                      {user.displayName
+                                  <div className="add-user__info">
+                                  {user.displayName
                                           ? `${user.displayName}<${user.email}>`
                                           : user.email}
                                       <img
@@ -275,6 +280,7 @@ export default function AddUsers({
                                           className="user-check"
                                           src={removeImage}
                                       />
+                                  </div>
                                   </div>
                               ) : (
                                   ""

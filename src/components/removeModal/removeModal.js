@@ -14,8 +14,10 @@ export function RemoveModal({setIsRemovable, removeFunction, type}){
         <div className="modal-remove-close-container" onClick={(e)=>closeRemoveModal(e)}>
             <div className="modal-remove-content-container">
                 <h2>Вы действительно хотите удалить эту {type === 'card' ? 'карточку' :  type === 'workspace' ? 'рабочую область' : 'метку'}?</h2>
-                <input value={"Отменить"} onClick={()=>setIsRemovable(false)} type="button"/>
-                <input value={"Подтвердить"} onClick={()=>remove()} type="button"/>
+                <div className='modal-remove-content-container__btn'>
+                <input className='btn__cancel btn' value={"Отменить"} onClick={()=>setIsRemovable(false)} type="button"/>
+                <input className='btn__confirm btn' value={"Подтвердить"} onClick={()=>remove()} type="button"/>
+                </div>
             </div>
         </div>
     )

@@ -131,6 +131,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
                   onBlur={() => {
                     setEditDisplayName(false);
                   }}
+                  className="menu-profile-displayname-info-add"
                   onChange={(e) => changeDisplayName(e)}
                   autoFocus
                   onFocus={(e) => {
@@ -246,7 +247,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
           {
             workspace && boards ?
             <div className="menu-print-container">
-              Печать
+              <h2 className="menu-print-container__title">Печать</h2>
                 {
                   <ul className="print-board-list" onClick={(e)=>{e.target.className === 'print-board-list' ? setOpenSelectBoard(!openSelectBoard) : (e)={} }}>
                     Выберите столбец

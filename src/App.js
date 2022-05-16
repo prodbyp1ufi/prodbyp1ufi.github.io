@@ -2,8 +2,6 @@ import './App.css';
 import { useState } from "react";
 import Login from './components/login/login';
 import Main from './components/main/main';
-import { auth} from './firebase-config'
-import {updateProfile} from 'firebase/auth'
 
 function App() {
   const [user, setUser] = useState(null);

@@ -76,20 +76,15 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   background-color: #304FFD;
-}
-
-.wrapper {
-  min-height: 950px;
+  overflow-y: hidden;
 }
 
 ._container {
-  max-width: 1400px;
   padding: 0px 15px;
 }
 
 .autorization-container {
-  background-repeat: no-repeat;
-  background-position: 5% 40%;
+  margin-top: 100px;
 }
 
 .body__autorization {
@@ -100,9 +95,9 @@ body {
   background: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 20px;
-  max-width: 600px;
+  max-width: 500px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin: 0px auto;
+  margin: auto;
 }
 
 .autorization__title {
@@ -111,8 +106,9 @@ body {
   line-height: 36px;
   color: #3F434A;
   text-align: center;
-  margin-top: 183px;
+  margin-top: 20px;
   margin-bottom: 51px;
+  user-select: none;
 }
 
 .autorization__google {
@@ -170,7 +166,7 @@ body {
 }
 
 .autorization__form {
-  padding: 0px 100px 0px 98px;
+  padding: 0px 25px;
 }
 
 .autorization__form-email {
@@ -183,7 +179,9 @@ body {
   align-items: center;
   margin: 0px 0px 21px 0px;
 }
-
+.autorization__form-password input[type="text"]{
+  font-size: 16px;
+}
 .autorization__form-remeber {
   display: flex;
   justify-content: space-between;
@@ -202,7 +200,7 @@ body {
 }
 
 .autorization__form-log {
-  margin: 24px 0px 179px 0px;
+  margin: 24px 0px 50px 0px;
 }
 
 .autorization__form-log input[type='button'] {
@@ -217,14 +215,19 @@ body {
   color: #FFFFFF;
   border-radius: 14px;
   box-shadow: 0px 4px #0026ff;
+  position: relative;
   top: 0;
-  transition: .2s ease box-shadow, .2s ease background-color;
+  transition: .2s;
 }
 
 .autorization__form-log input[type='button']:hover {
-  top: 2px;
-  box-shadow: 0 2px 0px #0026ff;
+  top: 3px;
+  box-shadow: 0 3px 0px #0026ff;
   background-color: #304FFD;
+}
+.autorization__form-log input[type='button']:active {
+  top: 4px;
+  box-shadow: 0 2px 0px #0026ff;
 }
 
 .autorization__footer {
@@ -233,13 +236,19 @@ body {
   text-align: center;
   color: #8A9099;
   margin: 0px 0px 27px 0px;
+  user-select: none;
 }
 
 .autorization__footer a {
   color: #304FFD;
+  transition: .2s;
 }
-
+.autorization__footer a:hover {
+  text-decoration: underline;
+  color: #000000;
+}
 .form__subtitle {
+  user-select: none;
   font-size: 14px;
   line-height: 18px;
   color: #8A9099;
@@ -252,6 +261,11 @@ body {
   text-align: right;
   color: #304FFD;
   display: block;
+  transition: .2s;
+}
+.form__remeber-link:hover {
+  text-decoration: underline;
+  color: #000000;
 }
 
 .form__remeber-link-phone {
@@ -283,7 +297,7 @@ body {
   border: 1px solid #304FFD;
 }
 
-.form-password__input {
+/* .form-password__input {
   border: 1px solid #E8E9EB;
   box-sizing: border-box;
   border-radius: 14px;
@@ -296,7 +310,7 @@ body {
   letter-spacing: 0.03em;
   color: #3F434A;
   transition: .2s ease border;
-}
+} */
 
 .form-password__input:focus {
   border: 1px solid #000000;
@@ -319,9 +333,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .wrapper {
-    min-height: 800px;
-  }
   .autorization-container {
     background-repeat: no-repeat;
     background-position: 10.8% 49.5%;
@@ -380,9 +391,6 @@ body {
 }
 
 @media (max-width: 425px) {
-  .wrapper {
-    min-height: 700px;
-  }
   .autorization-container {
     background-image: none;
   }
@@ -486,9 +494,6 @@ body {
   background-color: #E9F3F5;
 }
 
-.wrapper {
-  min-height: 900px;
-}
 
 ._container {
   max-width: 1400px;
@@ -509,13 +514,14 @@ body {
 }
 
 .registration__title {
+  user-select: none;
   font-weight: 500;
   font-size: 28px;
   line-height: 36px;
   color: #3F434A;
   text-align: center;
-  margin-top: 65px;
-  margin-bottom: 51px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .registration__google {
@@ -620,7 +626,7 @@ body {
 }
 
 .registration__form-log {
-  margin: 24px 0px 80px 0px;
+  margin: 20px 0px 10px 0px;
   flex-direction: column;
 }
 
@@ -635,12 +641,18 @@ body {
   width: 100%;
   border-radius: 14px;
   box-shadow: 0px 4px #0026ff;
+  position: relative;
   top: 0;
-  transition: .2s ease box-shadow, .2s ease background-color;
+  transition: .2s;
 }
 
 .registration__form-log input[type='button']:hover {
   top: 2px;
+  box-shadow: 0 3px 0px #0026ff;
+  background-color: #304FFD;
+}
+.registration__form-log input[type='button']:active {
+  top: 4px;
   box-shadow: 0 2px 0px #0026ff;
   background-color: #304FFD;
 }
@@ -651,11 +663,17 @@ body {
   text-align: center;
   color: #8A9099;
   margin: 0px 0px 51px 0px;
+  user-select: none;
 }
 
 .registration__footer a {
   color: #304FFD;
   margin: 0px 0px 0px 5px;
+  transition: .2s;
+}
+.registration__footer a:hover {
+  text-decoration: underline;
+  color: #000;
 }
 
 .form__subtitle {
@@ -722,7 +740,7 @@ body {
 .form-password__input {
   border: 1px solid #E8E9EB;
   border-radius: 14px;
-  padding: 0px 0px 9px 17px;
+  padding: 0px 0px 0px 7px;
   max-height: 40px;
   width: 400px;
   max-width: 100%;
@@ -733,7 +751,9 @@ body {
   color: #3F434A;
   transition: .2s ease border;
 }
-
+.form-password__input::placeholder {
+  font-size: 40px;
+}
 .form-password__input:focus {
   border: 1px solid #000000;
 }
@@ -746,7 +766,7 @@ body {
   border: 1px solid #E8E9EB;
   box-sizing: border-box;
   border-radius: 14px;
-  padding: 0px 0px 10px 17px;
+  padding: 0px 0px 0px 7px;
   max-height: 40px;
   max-width: 400px;
   font-weight: 500;
@@ -790,9 +810,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .wrapper {
-    min-height: 950px;
-  }
   .registration__title {
     margin-top: 71px;
     margin-bottom: 44px;
@@ -853,9 +870,6 @@ body {
 }
 
 @media (max-width: 375px) {
-  .wrapper {
-    min-height: 900px;
-  }
   .registration__title {
     margin-top: 46px;
     margin-bottom: 44px;
@@ -930,17 +944,6 @@ html, body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}
-
-
-/*обнуление всех стилей,снесение приколов разных браузеров и прочей хуеты*/
-
-body {
-  background-color: #E9F3F5;
-}
-
-.wrapper {
-  min-height: 750px;
 }
 
 ._container {
@@ -1060,9 +1063,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .wrapper {
-    min-height: 768px;
-  }
   .body__recovery {
     max-width: 430px;
   }
@@ -1091,9 +1091,6 @@ body {
 }
 
 @media (max-width: 375px) {
-  .wrapper {
-    min-height: 700px;
-  }
   .body__recovery {
     max-width: 316px;
   }
