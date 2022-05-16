@@ -44,7 +44,8 @@ export default class PrintAction{
                 doc.addPage()
             }
         })
-        doc.save('cardReport.pdf')
+        const fileName = board.name + ' ' + new Date().toLocaleString() + '.pdf'
+        doc.save(fileName)
     }
     static cardToString(card){
         const formatter = new Intl.DateTimeFormat("ru", {

@@ -9,6 +9,7 @@ import AddUsers from "../addusers/addusers";
 import AddTags from "../addtags/addtags";
 import { RemoveModal } from "../removeModal/removeModal";
 import PrintAction from "../../actions/printAction";
+import { auth } from "../../firebase-config";
 
 export default function Menu({ setOpenMenu, workspace, user, boards }) {
   const [newPhoto, setNewPhoto] = useState();
@@ -65,8 +66,10 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
     await WorkSpaceAction.updateWorkspaceName(workspace.id, newWorkSpaceName);
   }
   async function addNewWorkSpace() {
-    await WorkSpaceAction.addWorkspace(newWorkSpace);
-    setNewWorkSpace("");
+    if(newWorkSpace !== ''){
+      await WorkSpaceAction.addWorkspace(newWorkSpace);
+      setNewWorkSpace("");
+    }
   }
   async function deleteWorkSpace() {
     setOpenMenu(false);
@@ -154,8 +157,8 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
         </div>
         <div className="menu-workspace-contianer">
           <h2 className="menu-workspace-contianer__title">Рабочая область</h2>
-          {workspace ? (
-            <div className="menu-this-workspace-container">
+          {workspace && workspace.users[0] === auth.currentUser.email ? (
+              <div className="menu-this-workspace-container">
               <h2 className="menu-this-workspace-contianer__title">
                 Текущая рабочая область:
               </h2>
@@ -212,7 +215,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
               />
             </div>
           </div>
-          {workspace ? (
+          {workspace  && workspace.users[0] === auth.currentUser.email ? (
             <div className="menu-users-container">
               <h2 className="menu-users-container__title">Пользователи</h2>
               <input

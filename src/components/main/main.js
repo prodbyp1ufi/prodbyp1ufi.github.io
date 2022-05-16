@@ -25,7 +25,7 @@ export default function Main({ user }) {
 
   function selectWorkSpace(e) {
     const eventData = e.target.value.split(";");
-    setCurrentWorkSpace(new WorkSpace(eventData[0], eventData[1]));
+    setCurrentWorkSpace(workSpaces.find(workspace=>workspace.id === eventData[0]));
     BoardsAction.getBoards(setBoards, eventData[0]);
     UserNotificationAction.getUserNotification(setNotifications, eventData[0]);
   }

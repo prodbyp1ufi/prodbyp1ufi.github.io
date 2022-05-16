@@ -48,14 +48,16 @@ export default function AddUsers({
     async function addNewUserInWorkSpace() {
         const userExist = await UsersAction.userExist(newUser);
         if (userExist) {
-            workspace.users.push(newUser);
-            users.push(userExist);
-            setUsers(users);
-            await WorkSpaceAction.updateWorkspaceUsers(
-                workspace.id,
-                workspace.users
-            );
-            setNewUser("");
+            if(!workspace.users.includes(newUser)){
+                workspace.users.push(newUser);
+                users.push(userExist);
+                setUsers(users);
+                await WorkSpaceAction.updateWorkspaceUsers(
+                    workspace.id,
+                    workspace.users
+                );
+                setNewUser("");
+            }
         } else {
             console.error("Пользователя не существует");
         }

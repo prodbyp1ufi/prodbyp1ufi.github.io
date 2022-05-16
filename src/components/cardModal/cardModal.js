@@ -106,7 +106,7 @@ export default function CardModal({
   async function endEditNameOrCaption(e, card, property) {
     if (property === "name") {
       const newCardName = e.target.value;
-      if (newCardName !== card.name) {
+      if (newCardName !== card.name && newCardName !== '') {
         await CardsAction.updateCardName(newCardName, card.id);
         card.name = newCardName;
       }
