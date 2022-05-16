@@ -53,7 +53,8 @@
     min-width: 100px;
     min-height: 100px;
     position: absolute;
-    right: 320px;
+    z-index: 50;
+    right: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,4 +116,23 @@
 }
 .edit-tag-button:first-child {
     margin-right: 7px;
+}
+@media (max-width:654.98px) {
+    .modal-edit-tag-content-container{
+        right: 150px;
+    }
+}
+@media (max-width:479.98px) {
+    .modal-edit-tag-content-container{
+        right: 100px;
+    }
+}
+
+@media (max-width:415.98px) {
+}
+
+@media (max-width:374.98px) {
+    .modal-edit-tag-content-container{
+        right: 11px;
+    }
 }

@@ -425,8 +425,7 @@ export default function CardModal({
         </div>
         <div className="card-modal__btn">
           <div className="card-modal-users-tags-container">
-            <div className="card-modal-users">
-            </div>
+
             <div className="card-modal-tags">
               {tags.map((tag) => {
                 return (

@@ -8,6 +8,7 @@ body {
   background-image:url(./resources/OBJECTS.png);
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
+  object-fit: cover;
 }
 input[type="button"]{
   cursor: pointer;

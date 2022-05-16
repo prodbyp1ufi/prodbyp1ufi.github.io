@@ -112,11 +112,44 @@
     padding: 10px;
     min-height: fit-content;
     max-height: 200px;
-    width: 33vw;
+    min-width: 33vw;
     overflow-x: scroll;
     cursor: pointer;
     user-select: none;
     top: 63%;
     left: 42%;
     background-color: #fafafa;
+}
+@media (max-width:998.98px) {
+    .add-users-container{
+        left: 24%;
+    }
+}
+@media (max-width:479.98px) {
+    .add-users-container{
+        left: 9%;
+    }
+    .add-users-container__menu{
+        left: 9%;
+    }
+}
+
+@media (max-width:415.98px) {
+    .add-users-container{
+        left: 2%;
+    }
+    .add-users-container__menu{
+        left: 2%;
+    }
+}
+
+@media (max-width:374.98px) {
+    .add-users-container{
+        width: 96vw;
+        left: 2%;
+    }
+    .add-users-container__menu{
+        width: 96vw;
+        left: 2%;
+    }
 }

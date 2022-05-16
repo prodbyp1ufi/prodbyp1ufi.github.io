@@ -84,7 +84,7 @@
 }
 .add-new-task input[type="button"] {
     margin-top: 7px;
-    width: 15%;
+    max-width: 88px;
     padding: 7px 0px;
     border-radius: 5px;
     border: none;
@@ -107,4 +107,9 @@
 .add-new-task input[type="button"]:active {
     top: 4px;
     box-shadow: 0px 1px 0px 0px #85b4eb;
+}
+@media (max-width: 415.98px){
+    .add-new-task textarea{
+        width: 100%;
+    }
 }

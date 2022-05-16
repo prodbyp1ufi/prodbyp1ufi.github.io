@@ -1,5 +1,5 @@
 .card {
-    width: 18vw;
+    width: auto;
     color: #000;
     font-weight: bolder;
     font-size: 12px;
@@ -11,6 +11,9 @@
     background-color: #c0d4d8;
     cursor: pointer;
     transition: 0.3s ease background-color, 0.2s ease box-shadow, 0.2s ease transform;
+}
+.cards-container{
+    width: 100%;
 }
 .card:hover {
     background-color: #a5bcc1;

@@ -170,113 +170,113 @@ export default function BoardList({ boards, setBoards, user, workSpace }) {
         <div className="boards-list-container">
             {boards
                 ? boards.map((board) => {
-                      return (
-                          <div
-                              key={board.id}
-                              className="board"
-                              onDrop={(e) => {
-                                  dropOnBoard(e, board);
-                              }}
-                              onDragStart={(e) => {
-                                  dragStartBoard(e, board);
-                              }}
-                              onDragOver={(e) => {
-                                  e.preventDefault();
-                              }}
-                              onDragEnd={(e) => {
-                                  dragEndBoard(e);
-                              }}
-                              draggable={draggableBoard}
-                          >
-                              <div className="board-name-container">
-                                  <div
-                                      className="board-name"
-                                      onClick={() => {
-                                          setDraggableBoard(false);
-                                          setEditName(board.id);
-                                      }}
-                                      onEnded={(e) => {
-                                          console.log(e);
-                                      }}
-                                  >
-                                      {board.id !== editName ? (
-                                          board.name
-                                      ) : (
-                                          <textarea
-                                              maxLength={128}
-                                              draggable={false}
-                                              onBlur={(e) => {
-                                                  saveEditName(e, board.name);
-                                              }}
-                                              className="board-name-edit"
-                                              autoFocus
-                                              spellCheck={false}
-                                              onFocus={(e) => {
-                                                  e.target.setSelectionRange(
-                                                      0,
-                                                      512
-                                                  );
-                                              }}
-                                              defaultValue={board.name}
-                                              onChange={(e) => {
-                                                  resizeTextArea(e);
-                                              }}
-                                          />
-                                      )}
-                                  </div>
-                                  {cards.filter((c) => c.boardId === board.id)
-                                      .length === 0 ? (
-                                      <img
-                                          onClick={async () => {
-                                              await BoardsAction.deleteBoard(
-                                                  board.id
-                                              );
-                                          }}
-                                          src={basketImage}
-                                          className="board-remove"
-                                      />
-                                  ) : (
-                                      ""
-                                  )}
-                              </div>
-                              <div className="board-cards-container">
-                                  {cards ? (
-                                      <CardList
-                                          workSpaceId={board.workspaceId}
-                                          setDraggableBoard={setDraggableBoard}
-                                          setCurrentCardForBoard={
-                                              setCurrentCardForBoard
-                                          }
-                                          updateCards={updateCards}
-                                          cards={cards.filter(
-                                              (c) => c.boardId === board.id
-                                          )}
-                                      />
-                                  ) : (
-                                      ""
-                                  )}
-                              </div>
-                              <div
-                                  onClick={() => setAddNewCard(board.id)}
-                                  className="add-new-card-container"
-                              >
-                                  {addNewCard === board.id ? (
-                                      <textarea
-                                          maxLength={128}
-                                          onChange={(e) => {
-                                              resizeTextArea(e);
-                                          }}
-                                          className="add-new-card"
-                                          autoFocus
-                                          onBlur={(e) => addCard(e, board.id)}
-                                      />
-                                  ) : (
-                                      "Добавить карточку"
-                                  )}
-                              </div>
-                          </div>
-                      );
-                  })
+                        return (
+                            <div
+                                key={board.id}
+                                className="board"
+                                onDrop={(e) => {
+                                    dropOnBoard(e, board);
+                                }}
+                                onDragStart={(e) => {
+                                    dragStartBoard(e, board);
+                                }}
+                                onDragOver={(e) => {
+                                    e.preventDefault();
+                                }}
+                                onDragEnd={(e) => {
+                                    dragEndBoard(e);
+                                }}
+                                draggable={draggableBoard}
+                            >
+                                <div className="board-name-container">
+                                    <div
+                                        className="board-name"
+                                        onClick={() => {
+                                            setDraggableBoard(false);
+                                            setEditName(board.id);
+                                        }}
+                                        onEnded={(e) => {
+                                            console.log(e);
+                                        }}
+                                    >
+                                        {board.id !== editName ? (
+                                            board.name
+                                        ) : (
+                                            <textarea
+                                                maxLength={128}
+                                                draggable={false}
+                                                onBlur={(e) => {
+                                                    saveEditName(e, board.name);
+                                                }}
+                                                className="board-name-edit"
+                                                autoFocus
+                                                spellCheck={false}
+                                                onFocus={(e) => {
+                                                    e.target.setSelectionRange(
+                                                        0,
+                                                        512
+                                                    );
+                                                }}
+                                                defaultValue={board.name}
+                                                onChange={(e) => {
+                                                    resizeTextArea(e);
+                                                }}
+                                            />
+                                        )}
+                                    </div>
+                                    {cards.filter((c) => c.boardId === board.id)
+                                        .length === 0 ? (
+                                        <img
+                                            onClick={async () => {
+                                                await BoardsAction.deleteBoard(
+                                                    board.id
+                                                );
+                                            }}
+                                            src={basketImage}
+                                            className="board-remove"
+                                        />
+                                    ) : (
+                                        ""
+                                    )}
+                                </div>
+                                <div className="board-cards-container">
+                                    {cards ? (
+                                        <CardList
+                                            workSpaceId={board.workspaceId}
+                                            setDraggableBoard={setDraggableBoard}
+                                            setCurrentCardForBoard={
+                                                setCurrentCardForBoard
+                                            }
+                                            updateCards={updateCards}
+                                            cards={cards.filter(
+                                                (c) => c.boardId === board.id
+                                            )}
+                                        />
+                                    ) : (
+                                        ""
+                                    )}
+                                </div>
+                                <div
+                                    onClick={() => setAddNewCard(board.id)}
+                                    className="add-new-card-container"
+                                >
+                                    {addNewCard === board.id ? (
+                                        <textarea
+                                            maxLength={128}
+                                            onChange={(e) => {
+                                                resizeTextArea(e);
+                                            }}
+                                            className="add-new-card"
+                                            autoFocus
+                                            onBlur={(e) => addCard(e, board.id)}
+                                        />
+                                    ) : (
+                                        "Добавить карточку"
+                                    )}
+                                </div>
+                            </div>
+                        );
+                    })
                 : ""}
             <input
                 type="button"

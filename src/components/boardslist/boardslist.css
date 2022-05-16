@@ -1,5 +1,5 @@
 .boards-list-container {
-    padding: 15px 15px 20px 15px;
+    padding: 15px 0px 20px 15px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -11,7 +11,9 @@
     flex-direction: column;
     height: 85vh;
     border-radius: 5px;
-    min-width: fit-content;
+    min-width: 220px;
+    max-width: 295px;
+    width: 100%;
     box-shadow: 0px 13px 19px rgb(74 79 82 / 48%);
     background-color: #64a9b5;
     transition: 0.2s ease transform;
@@ -27,13 +29,16 @@
     padding: 5px 0px;
     font-size: 20px;
     text-transform: uppercase;
-    width: 18vw;
+    /* width: 18vw; */
     justify-content: center;
     align-items: center;
     resize: none;
     text-align: center;
     cursor: pointer;
     margin-left: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    order: 1;
 }
 
 .add-new-card-container {
@@ -54,7 +59,8 @@
     opacity: 0.7;
 }
 .boards-list-container__btn {
-    width: 35px;
+    max-width: 35px;
+    min-width: 35px;
     height: 35px;
     border-radius: 50%;
     border: none;
@@ -69,7 +75,7 @@
 }
 
 .board-name-container {
-    width: 20vw;
+    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -80,13 +86,15 @@
     background-color: #5c5c5c8a;
 }
 .board-remove {
-    margin: 7px 7px 0px 0px;
-    width: 25px;
-    height: 25px;
+    margin: 4px 7px 0px 0px;
+    width: 23px;
+    height: 23px;
     cursor: pointer;
+    /* margin-left: auto; */
+    order: 2;
 }
 .board-cards-container {
-    padding-top: 7px;
+    padding: 7px 7px 0px 7px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -96,6 +104,7 @@
 
 .add-new-card {
     background-color: #d1f1f7;
+    padding: 5px;
     letter-spacing: 0.5px;
     font-size: 16px;
     font-weight: 600;
@@ -122,6 +131,28 @@
     font-size: 20px;
     text-transform: uppercase;
 }
+
 .add-new-card:focus {
     outline: none;
+}
+@media (max-width:1087px) {
+    .boards-list-container{
+    }
+    .board-name-container {
+    }
+    .board-remove{
+        margin-top: 4px;
+    }
+
+}
+@media (max-width:654.98px) {
+
+}
+@media (max-width:479.98px) {
+}
+
+@media (max-width:415.98px) {
+}
+
+@media (max-width:374.98px) {
 }

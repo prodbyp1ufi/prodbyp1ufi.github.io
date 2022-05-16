@@ -7,7 +7,7 @@
 
 .header {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     align-items: center;
     min-height: 50px;
@@ -134,7 +134,7 @@
 }
 
 .menu-container {
-    width: 2vw;
+    width: 28px;
     height: 3.5vh;
     display: flex;
     justify-content: center;
@@ -155,4 +155,28 @@
 }
 .menu-line:not(:first-child) {
     margin-top: 5px;
+}
+@media (max-width:479.98px) {
+    .header{
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+    }
+    .header__button{
+        width: 100%;
+        margin-bottom: 8px;
+        margin-top: 4px;
+        justify-content: space-between;
+    }
+    .select{
+        /* width: 100px; */
+        margin-bottom: 4px;
+    }
+}
+@media (max-width:374.98px) {
+    .header{
+        padding: 0px 7px;
+    }
+    .header__button{
+        gap:10px;
+    }
 }
