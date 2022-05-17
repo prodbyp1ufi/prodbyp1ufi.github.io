@@ -21,7 +21,13 @@ export default class CardsAction {
             setCards(cards);
         });
     }
-
+    static async moveCard(card){
+        const cardDoc = doc(collection(db, "cards"), card.id);
+            updateDoc(cardDoc, {
+                board: card.boardId,
+                sortIndex: card.sortIndex,
+            });
+    }
     static async getBoardCard(boardId) {
         const cards = [];
         await getDocs(query(collection(db, "cards"), where("board", "==", boardId))).then((cardDocs) => {

@@ -251,6 +251,7 @@ export default function BoardList({ boards, setBoards, user, workSpace }) {
                                             cards={cards.filter(
                                                 (c) => c.boardId === board.id
                                             )}
+                                            boards={boards}
                                         />
                                     ) : (
                                         ""

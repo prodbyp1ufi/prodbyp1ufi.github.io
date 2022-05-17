@@ -4,10 +4,17 @@ import TaskListAction from "./taskListAction";
 import UsersAction from "./usersAction";
 import { jsPDF } from "jspdf";
 import '../fonts/Stem-Regular-normal.js'
+import { auth } from "../firebase-config";
 export default class PrintAction{
 
     static async printCardsInBoard(board){
-        
+        const formatter = new Intl.DateTimeFormat("ru", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+        });
         const boardCards = await CardsAction.getBoardCard(board.id)
         for (let index = 0; index < boardCards.length; index++) {
             await TagsAction.getCardTags(boardCards[index].id).then(
@@ -36,15 +43,22 @@ export default class PrintAction{
         doc.addFont('Stem-Regular-normal.ttf', 'MyFont', 'normal')
         doc.setFont('MyFont')
         doc.setFontSize(14)
-        cardOnPrint.forEach((card,index)=>{
-            const cardString = this.cardToString(card)
-            doc.text(cardString, 20,20,{maxWidth:180})
-            
-            if(index !== cardOnPrint.length-1){
-                doc.addPage()
-            }
-        })
-        const fileName = board.name + ' ' + new Date().toLocaleString() + '.pdf'
+        if(cardOnPrint.length === 0){
+            doc.text(auth.currentUser.displayName + `<${auth.currentUser.email}> - ${formatter.format(dateNow)}`, 55, 20)
+            doc.text(`В столбце \'${board.name}\' нет просроченных задач`, 20,30,{maxWidth:180})
+        }
+        else{
+            cardOnPrint.forEach((card,index)=>{
+                doc.text(auth.currentUser.displayName + `<${auth.currentUser.email}> - ${formatter.format(dateNow)}`, 55, 20)
+                const cardString = this.cardToString(card)
+                doc.text(cardString, 20,30,{maxWidth:180})
+                
+                if(index !== cardOnPrint.length-1){
+                    doc.addPage()
+                }
+            })
+        }
+        const fileName = `${board.name} - ${formatter.format(dateNow)}.pdf`
         doc.save(fileName)
     }
     static cardToString(card){

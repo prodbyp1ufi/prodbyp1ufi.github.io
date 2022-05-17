@@ -11,10 +11,10 @@
     align-items: center;
     transform: none !important;
 }
-
+.card-modal-move-to-board {
+    cursor: pointer;
+}
 .card-modal {
-    gap: 20px;
-    display: flex;
     width: 65%;
     height: 85%;
     border-radius: 4px;
@@ -24,7 +24,11 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-
+.card-modal__body {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
 .card-modal-name {
     overflow-wrap: break-word;
     font-weight: 500;
@@ -239,6 +243,7 @@
     border-radius: 50%;
     background-color: purple;
     display: flex;
+    user-select: none;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
@@ -350,6 +355,40 @@
 .card-modal-delay input[type="button"]:not(:first-child) {
     margin-top: 8px;
 }
+.card-modal-move-to-board {
+    cursor: pointer;
+    user-select: none;
+    color: #172b4d;
+    padding: 3px 0px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 7px 0px 0px 0px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    position: relative;
+    top: 0;
+    box-shadow: 0px 4px 0px 0px #d3d1d1;
+    transition: 0.2s;
+    text-align: center;
+}
+.card-modal-move-to-board:hover {
+    top: 3px;
+    box-shadow: 0px 3px 0px 0px #d3d1d1;
+}
+.card-modal-move-to-board:active {
+    top: 4px;
+    background-color: #fafafabe;
+    box-shadow: 0px 2px 0px 0px #d3d1d1;
+}
+.card-modal-move-to-board:not(:first-child) {
+    margin-top: 7px;
+}
+.card-modal-move {
+    margin-bottom: 7px;
+}
+.btn-tags__container {
+    margin: 7px 0px;
+}
 .card-modal-delay input[type="button"]:hover {
     background-color: #fff;
     box-shadow: 0px 0px 5px 2px #2bc0e4;
@@ -439,67 +478,85 @@
     text-decoration: none;
 }
 
-@media (max-width:997.98px) {
-    .card-modal{
+@media (max-width: 997.98px) {
+    .card-modal__body {
         gap: 10px;
     }
-    .card-modal-name{
+    .card-modal-name {
         font-size: 18px;
     }
-    .card-modal-edit-name{
+    .card-modal-edit-name {
         font-size: 18px;
     }
-    .card-modal__title{
+    .card-modal__title {
         font-size: 16px;
         letter-spacing: 1px;
     }
-    .card-modal-caption{
+    .card-modal-caption {
         font-size: 14px;
     }
-    .card-modal-edit-caption{
+    .card-modal-edit-caption {
         font-size: 14px;
     }
-    .card-modal-date{
+    .card-modal-date {
         width: 60%;
     }
 }
 @media (max-width: 767.98px) {
-    .card-modal{
-        flex-direction: column-reverse;
+    .card-modal-delay input[type="button"]:hover {
+        box-shadow: none;
+    }
+    .card-modal-delay input[type="button"]:active {
+        box-shadow: none;
+    }
+    .card-modal {
         width: 80%;
     }
-    .card-modal__info{
-        width: auto;
+    .card-modal__body {
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 0;
     }
-    .card-modal__btn{
+    .card-modal__info {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .card-modal__btn {
         width: auto;
         margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .card-modal-delay{
+    .btn-tags__container {
+        margin: 0px;
+    }
+    .card-modal-delay {
         padding-right: 0;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 5px;
     }
-    .card-modal-delay input[type="button"]:not(:first-child){
+    .card-modal-delay input[type="button"]:not(:first-child) {
         margin-top: 0;
     }
 }
-@media (max-width:654.98px) {
-    .card-modal-date{
+@media (max-width: 654.98px) {
+    .card-modal-date {
         width: auto;
         justify-content: center;
     }
 }
-@media (max-width:479.98px) {
-    .card-modal{
-        flex-direction: column-reverse;
+@media (max-width: 479.98px) {
+    .card-modal {
         width: 90%;
     }
 }
 
-@media (max-width:415.98px) {
-    .card-modal{
+@media (max-width: 415.98px) {
+    .card-modal {
         padding: 10px 7.5px;
     }
 }

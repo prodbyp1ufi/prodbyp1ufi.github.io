@@ -38,6 +38,7 @@
 }
 
 .modal-edit-tag-close-container {
+    z-index: 2;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -117,22 +118,19 @@
 .edit-tag-button:first-child {
     margin-right: 7px;
 }
-@media (max-width:654.98px) {
-    .modal-edit-tag-content-container{
+@media (max-width: 654.98px) {
+    .modal-edit-tag-content-container {
         right: 150px;
     }
 }
-@media (max-width:479.98px) {
-    .modal-edit-tag-content-container{
+@media (max-width: 479.98px) {
+    .modal-edit-tag-content-container {
         right: 100px;
     }
 }
 
-@media (max-width:415.98px) {
-}
-
-@media (max-width:374.98px) {
-    .modal-edit-tag-content-container{
-        right: 11px;
+@media (max-width: 375.98px) {
+    .modal-edit-tag-content-container {
+        right: 16px;
     }
 }

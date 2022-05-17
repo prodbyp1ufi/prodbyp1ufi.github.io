@@ -8,7 +8,7 @@ import eyeImage from '../../resources/eyeBlack.png'
 import commentCountImage from '../../resources/commentCount.png'
 import { auth } from '../../firebase-config'
 
-export default function CardList({workSpaceId, setCurrentCardForBoard, updateCards,cards, setDraggableBoard}){
+export default function CardList({workSpaceId, setCurrentCardForBoard, updateCards,cards,boards, setDraggableBoard}){
     const [openCardModal, setOpenCardModal] = useState(false)
     const [currentCard, setCurrentCard] = useState(null)
     const [tags, setTags] = useState([])
@@ -68,6 +68,7 @@ export default function CardList({workSpaceId, setCurrentCardForBoard, updateCar
                 card={currentCard}
                 setCurrentCard={setCurrentCard}
                 setOpenCardModal={setOpenCardModal}
+                boards={boards}
             />
             ) : (
             ""
@@ -115,7 +116,7 @@ export default function CardList({workSpaceId, setCurrentCardForBoard, updateCar
                 </div>
                 <div className="card-name">{card.name}</div>
                 <div className="widgets">
-                    {card.caption !== null ? (
+                    {card.caption !== '' ? (
                     <img title="Эта карточка с описанием" src={captionImage} />
                     ) : (
                     ""

@@ -158,7 +158,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
         <div className="menu-workspace-contianer">
           <h2 className="menu-workspace-contianer__title">Рабочая область</h2>
           {workspace && workspace.users[0] === auth.currentUser.email ? (
-              <div className="menu-this-workspace-container">
+            <div className="menu-this-workspace-container">
               <h2 className="menu-this-workspace-contianer__title">
                 Текущая рабочая область:
               </h2>
@@ -215,7 +215,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
               />
             </div>
           </div>
-          {workspace  && workspace.users[0] === auth.currentUser.email ? (
+          {workspace && workspace.users[0] === auth.currentUser.email ? (
             <div className="menu-users-container">
               <h2 className="menu-users-container__title">Пользователи</h2>
               <input
