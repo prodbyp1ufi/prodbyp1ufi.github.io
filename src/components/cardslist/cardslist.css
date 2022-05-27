@@ -1,0 +1,63 @@
+.card {
+    width: auto;
+    color: #000;
+    font-weight: bolder;
+    font-size: 12px;
+    padding: 7px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #c0d4d8;
+    cursor: pointer;
+    transition: 0.3s ease background-color, 0.2s ease box-shadow, 0.2s ease transform;
+}
+.cards-container{
+    width: 100%;
+}
+.card:hover {
+    background-color: #a5bcc1;
+    box-shadow: 0px 5px 13px 2px #fafafa;
+    transform: scale(1.03);
+}
+.card:active {
+    background-color: #9eb8bd;
+}
+.card:not(:last-child) {
+    margin-bottom: 7px;
+}
+.card-tags {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+.tag {
+    width: auto;
+    padding: 3px 7px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    border-radius: 5px;
+    color: #fafafa;
+}
+.card-name {
+    text-align: left;
+    font-weight: 500;
+    color: #5a60e7;
+    margin-bottom: 7px;
+}
+.card-caption {
+    text-align: left;
+    padding-left: 10px;
+}
+.widgets {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.widgets img:not(:last-child) {
+    margin-right: 8px;
+}

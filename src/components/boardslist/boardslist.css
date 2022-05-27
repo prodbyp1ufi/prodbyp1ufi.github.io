@@ -1,0 +1,159 @@
+.boards-list-container {
+    padding: 15px 0px 20px 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-x: auto;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    border-radius: 5px;
+    min-width: 240px;
+    max-width: 295px;
+    width: 100%;
+    box-shadow: 0px 13px 19px rgb(74 79 82 / 48%);
+    background-color: #64a9b5;
+    transition: 0.2s ease transform;
+}
+
+.board:not(:last-child) {
+    margin-right: 10px;
+}
+.board-name {
+    overflow-wrap: break-word;
+    letter-spacing: 1px;
+    color: #fafafa;
+    padding: 5px 0px;
+    font-size: 20px;
+    text-transform: uppercase;
+    /* width: 18vw; */
+    justify-content: center;
+    align-items: center;
+    resize: none;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    order: 1;
+}
+
+.add-new-card-container {
+    background-color: #d1f1f7;
+    border-radius: 0px 0px 4px 4px;
+    min-height: 37px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a4f52;
+    cursor: pointer;
+    transition: 0.2s ease opacity;
+}
+.add-new-card-container:hover {
+    opacity: 0.7;
+}
+.boards-list-container__btn {
+    max-width: 35px;
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(105, 105, 105, 0.75);
+    font-size: 24px;
+    color: #fafafa;
+    transition: 0.2s ease background-color;
+}
+
+.boards-list-container__btn:hover {
+    background-color: rgb(105, 105, 105);
+}
+
+.board-name-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 5px 7px 0px 0px;
+    transition: 0.2s ease background-color;
+}
+.board-name-container:hover {
+    background-color: #5c5c5c8a;
+}
+.board-remove {
+    margin: 4px 7px 0px 0px;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    /* margin-left: auto; */
+    order: 2;
+}
+.board-cards-container {
+    padding: 7px 7px 0px 7px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.add-new-card {
+    background-color: #d1f1f7;
+    padding: 5px;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a4f52;
+    max-height: 40px;
+    min-height: 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.board-name-edit {
+    background-color: #64a9b5;
+    color: #4a4f52;
+    max-height: 40px;
+    min-height: 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    letter-spacing: 1px;
+    color: #fafafa;
+    padding: 5px 0px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.add-new-card:focus {
+    outline: none;
+}
+@media (max-width: 1087px) {
+    .boards-list-container {
+    }
+    .board-name-container {
+    }
+    .board-remove {
+        margin-top: 4px;
+    }
+}
+@media (max-width: 654.98px) {
+    .board {
+        height: 80vh;
+    }
+}
+@media (max-width: 479.98px) {
+}
+
+@media (max-width: 415.98px) {
+}
+
+@media (max-width: 374.98px) {
+}

@@ -1,0 +1,93 @@
+.modal-remove-close-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: none !important;
+    z-index: 2;
+}
+.modal-remove-content-container{
+    background-color: #fafafa;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-remove-content-container h2{
+    text-align: center;
+    font-size: 24px;
+    color: #172b4d;
+    user-select: none;
+}
+.modal-remove-content-container__btn{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.btn{
+    padding: 6px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    color: #fafafa;
+    border-radius: 5px;
+    position: relative;
+    top: 0;
+    transition-duration: 200ms;
+}
+.btn__cancel{
+    background-color: #005ecc;
+    box-shadow: 0px 4px 0px 0px #85b4eb;
+}
+.btn__confirm{
+    background-color: #3602b1d8  ;
+    box-shadow: 0px 4px 0px 0px #28047c5d;
+}
+
+.btn__cancel:hover {
+    top: 2px;
+    background-color: #0077ffd2;
+    box-shadow: 0px 3px 0px 0px #85b4eb;
+}
+.btn__cancel:active {
+    top: 4px;
+    box-shadow: 0px 1px 0px 0px #85b4eb;
+}
+.btn__confirm:hover {
+    top: 2px;
+    background-color: #28047cad;
+    box-shadow: 0px 3px 0px 0px #28047c5d;
+}
+.btn__confirm:active {
+    top: 4px;
+    box-shadow: 0px 1px 0px 0px #28047c5d;
+}
+@media (max-width:997.98px) {
+
+}
+@media (max-width: 767.98px) {
+    .modal-remove-content-container{
+        width: 90%;
+    }
+
+}
+@media (max-width:654.98px) {
+}
+@media (max-width:479.98px) {
+}
+
+@media (max-width:415.98px) {
+    .modal-remove-content-container h2{
+        font-size: 16px;
+    }
+    .btn{
+        font-size: 12px;
+    }
+}

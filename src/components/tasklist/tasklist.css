@@ -1,0 +1,114 @@
+.task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: #091e420a;
+    transition: 0.2s ease background-color;
+}
+.task:hover {
+    background-color: #091e4252;
+}
+.task:not(:last-child) {
+    margin-bottom: 7px;
+}
+.task input[type="checkbox"] {
+    cursor: pointer;
+    margin-right: 15px;
+    transform: scale(1.6);
+}
+.task__text {
+    display: flex;
+    align-items: center;
+    margin-right: 0.546px;
+}
+.task__img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: 0.2s ease opacity;
+}
+.task__img:hover {
+    opacity: 0.5;
+}
+.task-list-container {
+    margin-top: 20px;
+}
+.edit-task {
+    min-height: 50px;
+    height: auto;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    color: #172b4d;
+    min-width: 250%;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: initial;
+}
+
+.edit-task::selection {
+    color: #64a9b5;
+    background-color: initial;
+}
+.task-caption {
+    font-size: 16px;
+    color: #172b4d;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.add-new-task {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-new-task textarea {
+    font-size: 15px;
+    width: 85%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    resize: none;
+    min-height: 30px;
+    padding: 2px 5px;
+    color: #172b4d;
+}
+.add-new-task textarea:focus {
+    border: 1px solid #0075ff;
+}
+.add-new-task input[type="button"] {
+    margin-top: 7px;
+    max-width: 88px;
+    padding: 7px 0px;
+    border-radius: 5px;
+    border: none;
+    color: #fafafa;
+    letter-spacing: 0.8px;
+    background-color: #0075ff;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    transition-duration: 200ms;
+    box-shadow: 0px 4px 0px 0px #85b4eb;
+}
+
+.add-new-task input[type="button"]:hover {
+    top: 2px;
+    background-color: #0077ffd2;
+    box-shadow: 0px 3px 0px 0px #85b4eb;
+}
+.add-new-task input[type="button"]:active {
+    top: 4px;
+    box-shadow: 0px 1px 0px 0px #85b4eb;
+}
+@media (max-width: 415.98px) {
+    .edit-task {
+        min-width: 98%;
+    }
+}
