@@ -73,7 +73,7 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
   }
   async function deleteWorkSpace() {
     setOpenMenu(false);
-    await WorkSpaceAction.removeWorkspace(workspace.id)
+    WorkSpaceAction.removeWorkspace(workspace.id)
     window.location.reload();
   }
 
