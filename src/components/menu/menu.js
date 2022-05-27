@@ -73,9 +73,8 @@ export default function Menu({ setOpenMenu, workspace, user, boards }) {
   }
   async function deleteWorkSpace() {
     setOpenMenu(false);
-    WorkSpaceAction.removeWorkspace(workspace.id).then(() => {
-      window.location.reload();
-    });
+    await WorkSpaceAction.removeWorkspace(workspace.id)
+    window.location.reload();
   }
 
   async function printCardsInBoard(board){
