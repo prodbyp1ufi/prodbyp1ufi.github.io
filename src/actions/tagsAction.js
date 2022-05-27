@@ -51,7 +51,7 @@ export default class TagsAction{
     static async removeTags(workspaceId){
         await getDocs(query(collection(db, "tags"), where("workspace", "==", workspaceId))).then((tags) => {
             tags.forEach((tag) => {
-                this.removeTag(tag);
+                this.removeTag(tag.id);
             });
         });
     }
