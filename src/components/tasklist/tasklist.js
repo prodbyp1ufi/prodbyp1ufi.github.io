@@ -36,7 +36,7 @@ export default function TaskList({ tasks, cardId }) {
   }
   function dragEndTask(e) {
     if (e.target.className === "task") {
-      e.target.style.backgroundColor = "091e420a";
+      e.target.style.backgroundColor = "#091e420a";
     }
   }
   async function addNewTask() {
