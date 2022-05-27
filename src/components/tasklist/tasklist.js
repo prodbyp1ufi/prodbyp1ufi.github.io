@@ -30,13 +30,13 @@ export default function TaskList({ tasks, cardId }) {
   }
   function dragStartTask(e, task) {
     if (e.target.className === "task") {
-      e.target.style.background = "#ebda88";
+      e.target.style.backgroundColor = "#ebda88";
       setCurrentTask(task);
     }
   }
   function dragEndTask(e) {
     if (e.target.className === "task") {
-      e.target.style.background = "white";
+      e.target.style.backgroundColor = "091e420a";
     }
   }
   async function addNewTask() {
