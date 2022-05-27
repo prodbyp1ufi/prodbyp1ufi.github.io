@@ -48,4 +48,11 @@ export default class TagsAction{
     static async removeTag(tagId){
         await deleteDoc(doc(collection(db, 'tags'), tagId))
     }
+    static async removeTags(workspaceId){
+        await getDocs(query(collection(db, "tags"), where("workspace", "==", workspaceId))).then((tags) => {
+            tags.forEach((tag) => {
+                this.removeTag(tag);
+            });
+        });
+    }
 }

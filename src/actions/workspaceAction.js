@@ -3,6 +3,7 @@ import {db, auth} from '../firebase-config'
 import { onSnapshot} from 'firebase/firestore'
 import WorkSpace from '../models/workspace'
 import BoardsAction from './boardsAction';
+import TagsAction from './tagsAction';
 
 export default class WorkSpaceAction{
     static async getWorkSpaces(setWorkSpaces, email){
@@ -37,6 +38,7 @@ export default class WorkSpaceAction{
     static async removeWorkspace(workspaceId){
         await deleteDoc(doc(collection(db,'workspace' ), workspaceId))
         await BoardsAction.removeBoards(workspaceId)
+        await TagsAction.removeTags(workspaceId)
     }
 
     static async updateWorkspaceUsers(workSpaceId, users){
