@@ -116,7 +116,7 @@ export default function CardList({workSpaceId, setCurrentCardForBoard, updateCar
                 </div>
                 <div className="card-name">{card.name}</div>
                 <div className="widgets">
-                    {card.caption !== '' ? (
+                    {card.caption !== '' && card.caption !== null ? (
                     <img title="Эта карточка с описанием" src={captionImage} />
                     ) : (
                     ""
